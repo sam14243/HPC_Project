@@ -49,7 +49,7 @@ int main()
             for (int k = 0; k < nz; k++)
             {
                 int index = getIndex(i, j, k, ny, nz);
-                // Distance of point i, j, k from the origin
+                // Distance of point from the origin
                 float ds2 = (i - nx / 2) * (i - nx / 2) + (j - ny / 2) * (j - ny / 2) + (k - nz / 2) * (k - nz / 2);
                 if (ds2 < radius2)
                 {
@@ -61,16 +61,14 @@ int main()
                 }
             }
         }
-    }
-
-    // Fill in the data on the next step to ensure that the boundaries are identical.
+    }  
     std::copy(Un, Un + numElements, Unp1);
 
+    // Time Start
     auto start = std::chrono::system_clock::now();
 
     for (int n = 0; n <= numSteps; n++)
     {
-        // Going through the entire area
         for (int i = 1; i < nx - 1; i++)
         {
             for (int j = 1; j < ny - 1; j++)
@@ -90,15 +88,14 @@ int main()
                 }
             }
         }
-        // Swapping the pointers for the next timestep
         std::swap(Un, Unp1);
     }
+    // Time Start
     auto end = std::chrono::system_clock::now();
     std::chrono::duration<double> elapsed_seconds = end-start;
-
-
     std::cout << "Elapsed time: " << elapsed_seconds.count() << "s" << std::endl;
 
+    // Release the memory
     delete[] Un;
     delete[] Unp1;
 
