@@ -12,6 +12,10 @@ int getIndex(const int i, const int j, const int k, const int width, const int h
 
 int main()
 {
+
+    //Set number of threads
+    // omp_set_num_threads(2);
+    
     // Width, Height and Depth of the area
     const int nx = 100;
     const int ny = 100;
