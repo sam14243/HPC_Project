@@ -68,7 +68,7 @@ int main()
     // Fill in the data on the next step to ensure that the boundaries are identical.
     std::copy(Un, Un + numElements, Unp1);
 
-    // clock_t start = clock();
+    //Initialize clock with the system time
     auto start = std::chrono::system_clock::now();
 
     for (int n = 0; n <= numSteps; n++)
@@ -100,6 +100,8 @@ int main()
         // Swapping the pointers for the next timestep
         std::swap(Un, Unp1);
     }
+    
+    //Calculate elapsed time using the difference in the system time between starting and ending
     auto end = std::chrono::system_clock::now();
     std::chrono::duration<double> elapsed_seconds = end-start;
 
