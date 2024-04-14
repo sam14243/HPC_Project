@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <iostream>
 #include <ctime>
+#include <chrono>
 
 // Function to convert 3D index layout to unrolled 1D layout
 int getIndex(const int i, const int j, const int k, const int width, const int height)
@@ -65,7 +66,7 @@ int main()
     // Fill in the data on the next step to ensure that the boundaries are identical.
     std::copy(Un, Un + numElements, Unp1);
 
-    clock_t start = clock();
+    auto start = std::chrono::system_clock::now();
 
     for (int n = 0; n <= numSteps; n++)
     {
@@ -92,8 +93,11 @@ int main()
         // Swapping the pointers for the next timestep
         std::swap(Un, Unp1);
     }
-    clock_t finish = clock();
-    std::cout << "It took " << static_cast<double>(finish - start) / CLOCKS_PER_SEC << " seconds" << std::endl;
+    auto end = std::chrono::system_clock::now();
+    std::chrono::duration<double> elapsed_seconds = end-start;
+
+
+    std::cout << "Elapsed time: " << elapsed_seconds.count() << "s" << std::endl;
 
     delete[] Un;
     delete[] Unp1;
