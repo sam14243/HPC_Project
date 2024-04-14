@@ -12,7 +12,6 @@ int getIndex(const int i, const int j, const int k, const int width, const int h
 
 int main()
 {
-
     //Set number of threads
     // omp_set_num_threads(2);
     
@@ -108,10 +107,7 @@ int main()
     //Calculate elapsed time using the difference in the system time between starting and ending
     auto end = std::chrono::system_clock::now();
     std::chrono::duration<double> elapsed_seconds = end-start;
-
     std::cout << "Elapsed time: " << elapsed_seconds.count() << "s" << std::endl;
-
-
 
     delete[] Un;
     delete[] Unp1;

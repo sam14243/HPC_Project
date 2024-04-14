@@ -90,6 +90,7 @@ int main()
         }
         std::swap(Un, Unp1);
     }
+    
     // Time Start
     auto end = std::chrono::system_clock::now();
     std::chrono::duration<double> elapsed_seconds = end-start;
