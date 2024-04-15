@@ -5,7 +5,7 @@ The heat equation is a partial differential equation that describes the propagat
 
 ## Test serial code
 Type in your terminal to compile :\
-`g++ heat3D_Serial.cpp -o cpp.out`
+`g++ heat3D_Serial.cpp -o heat3D_Serial.out`
 
 To Run :\
 `./heat3D_Serial.out`
