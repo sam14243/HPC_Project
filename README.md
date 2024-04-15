@@ -3,6 +3,8 @@
 ## Problem Statement
 The heat equation is a partial differential equation that describes the propagation of heat in a region over time. The aim of our project is to develop and implement a parallelized simulation of heat diffusion using the explicit finite difference method on a three-dimensional grid.
 
+## $\frac{∂U}{∂t}$ = $\frac{∂^2U}{∂x^2}$ + $\frac{∂^2U}{∂y^2}$ + $\frac{∂^2U}{∂z^2}$
+
 ## Test serial code
 Type in your terminal to compile :\
 `g++ heat3D_Serial.cpp -o heat3D_Serial.out`
